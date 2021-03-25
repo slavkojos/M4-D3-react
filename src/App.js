@@ -13,6 +13,7 @@ import {
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import Main from './components/Main';
+import ProductDetail from './components/ProductDetail';
 
 function App() {
   return (

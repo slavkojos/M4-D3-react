@@ -1,7 +1,9 @@
 import React from 'react';
 import { chakra, Box, Image, Flex, useColorModeValue } from '@chakra-ui/react';
+import MyBadge from './MyBadge';
+import ProductDetail from './ProductDetail';
 
-const Ma = () => {
+const Ma = props => {
   return (
     <Flex
       bg="gray.200"
@@ -9,6 +11,7 @@ const Ma = () => {
       w="full"
       alignItems="center"
       justifyContent="center"
+      h={'500px'}
     >
       <Box
         maxW="xs"
@@ -17,15 +20,16 @@ const Ma = () => {
         shadow="lg"
         rounded="lg"
       >
-        <Box px={4} py={2}>
+        <Box px={4} py={2} h={'200px'}>
           <chakra.h1
             color={useColorModeValue('gray.800', 'white')}
             fontWeight="bold"
-            fontSize="3xl"
-            textTransform="uppercase"
+            fontSize="xl"
+            noOfLines={2}
           >
-            NIKE AIR
+            {props.name}
           </chakra.h1>
+          <MyBadge color="blue" name={props.category} />
           <chakra.p
             mt={1}
             fontSize="sm"
@@ -37,12 +41,14 @@ const Ma = () => {
         </Box>
 
         <Image
-          h={48}
+          h={64}
           w="full"
-          fit="cover"
+          objectFit="fill"
           mt={2}
-          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=320&q=80"
-          alt="NIKE AIR"
+          src={props.img}
+          alt={props.title}
+          p={3}
+          px={6}
         />
 
         <Flex
@@ -54,26 +60,9 @@ const Ma = () => {
           roundedBottom="lg"
         >
           <chakra.h1 color="white" fontWeight="bold" fontSize="lg">
-            $129
+            ${props.price}
           </chakra.h1>
-          <chakra.button
-            px={2}
-            py={1}
-            bg="white"
-            fontSize="xs"
-            color="gray.900"
-            fontWeight="bold"
-            rounded="lg"
-            textTransform="uppercase"
-            _hover={{
-              bg: 'gray.200',
-            }}
-            _focus={{
-              bg: 'gray.400',
-            }}
-          >
-            Add to cart
-          </chakra.button>
+          <ProductDetail />
         </Flex>
       </Box>
     </Flex>
