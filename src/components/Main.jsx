@@ -26,17 +26,16 @@ export default function Main() {
     <Box bg="gray.200" w="100%" p={8}>
       <Center>
         <SimpleGrid columns={[2, null, 4]} spacingY="40px">
-          {scifi.map(item => {
+          {scifi.map((item, index) => {
             return (
-              <Box h={'500px'}>
-                <Product
-                  key={item.asin}
-                  name={item.title}
-                  img={item.img}
-                  price={item.price}
-                  category={item.category}
-                />
-              </Box>
+              <Product
+                key={item.asin}
+                id={item.asin}
+                name={item.title}
+                img={item.img}
+                price={item.price}
+                category={item.category}
+              />
             );
           })}
         </SimpleGrid>

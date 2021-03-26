@@ -10,10 +10,12 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { useDisclosure } from '@chakra-ui/react';
-import CommentsForm from './CommentsForm';
+import CommentsBox from './CommentsBox';
 
-function BasicUsage() {
+function BasicUsage(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  console.log(props.id);
+
   return (
     <>
       <Button onClick={onOpen}>Open comments</Button>
@@ -24,9 +26,8 @@ function BasicUsage() {
           <ModalHeader>Comments</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <CommentsForm />
+            <CommentsBox id={props.id} />
           </ModalBody>
-
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={onClose}>
               Close

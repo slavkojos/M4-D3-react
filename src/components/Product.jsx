@@ -46,7 +46,7 @@ const Ma = props => {
           objectFit="fill"
           mt={2}
           src={props.img}
-          alt={props.title}
+          alt={props.name}
           p={3}
           px={6}
         />
@@ -62,7 +62,7 @@ const Ma = props => {
           <chakra.h1 color="white" fontWeight="bold" fontSize="lg">
             ${props.price}
           </chakra.h1>
-          <ProductDetail />
+          <ProductDetail key={props.id} id={props.id} />
         </Flex>
       </Box>
     </Flex>
